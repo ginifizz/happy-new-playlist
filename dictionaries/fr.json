@@ -1,0 +1,31 @@
+{
+  "cover": {
+    "part1": "Les-Tilleuls.coop",
+    "part2": "vous souhaite une année 2024<br />remplie de",
+    "part3": "musique !",
+    "subtitle": "...et pour l’occasion, nos coopérateurs partagent avec vous leurs playlists favorites !",
+    "scroll": "Scroller pour écouter",
+    "happy": "Bonne année !"
+  },
+  "buttons": {
+    "scroll": "Scroller pour la suite",
+    "pause": "Pause",
+    "preview": "Preview",
+    "spotify": "Ecouter sur Spotify"
+  },
+  "tape1": {
+    "title": "Spider Addict",
+    "subtitle": "La playlist de Laury",
+    "description": "Laury, c’est notre lead designer, et sa passion, c’est de décliner Webby, la mascotte araignée de notre framework API Platform. La preuve avec cette playlist déconseillée aux arachnophobes !"
+  },
+  "tape2": {
+    "title": "Code Lover",
+    "subtitle": "La playlist de Kévin",
+    "description": "Kévin, notre chef de la programmation, ne vit que pour le code, et sa passion se reflète dans cette playlist qui ne manquera pas de faire vibrer les adeptes du langage binaire. Préparez-vous à plonger dans un univers sonore réservé aux passionnés du développement !"
+  },
+  "tape3": {
+    "title": "100% Live",
+    "subtitle": "La playlist de Cécile",
+    "description": "Cécile, c'est notre chef d'événements, et son amour pour l'adrénaline du direct est palpable à chaque instant. La preuve en musique avec cette playlist à réserver aux amateurs de sensations fortes !"
+  }
+}
