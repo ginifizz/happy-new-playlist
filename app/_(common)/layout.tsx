@@ -33,7 +33,7 @@ export default async function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang='en'
       className={clsx(
         montserrat.variable,
         spicy.variable,
@@ -46,12 +46,12 @@ export default async function RootLayout({
           <div className='w-1/2 ml-auto h-full relative'>
             <img
               src='/lines.svg'
-              className='h-screen max-w-none top-1/2 -translate-y-1/2 absolute left-1/2 -translate-x-1/2'
+              className='h-screen rotate-90 left-1/2 scale-x-[30%] top-[20%] max-w-none md:rotate-0 md:scale-x-100 md:top-1/2 -translate-y-1/2 absolute md:left-1/2 -translate-x-1/2'
               alt=''
             />
           </div>
         </div>
-        <LocaleSwitcher current="en" />
+        <LocaleSwitcher current='en' />
         <SectionContextProvider>
           <div className='relative w-full' id='container'>
             {children}

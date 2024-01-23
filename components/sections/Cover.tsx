@@ -26,18 +26,18 @@ export default function Cover({ translation }:CoverProps) {
       <div className='absolute right-0 top-28 text-red w-24'>
         <Dots />
       </div>
-      <div className='container relative h-full flex flex-row items-center mx-auto'>
-        <div className='relative w-1/2 flex flex-col gap-1'>
+      <div className='container relative h-full flex flex-col-reverse md:flex-row items-center mx-auto'>
+        <div className='relative w-full md:w-1/2 flex flex-col gap-1 flex-1'>
           <div className='text-red'>
             <Arrows />
           </div>
-          <p className='text-5xl text-brown font-black'>{translation.part1}</p>
+          <p className='text-3xl md:text-5xl text-brown font-black'>{translation.part1}</p>
           <div
-            className='text-3xl text-brown font-bold'
+            className='text-xl md:text-3xl text-brown font-bold'
             dangerouslySetInnerHTML={{ __html: translation.part2 }}
           />
-          <p className='font-title text-8xl text-red uppercase'>{translation.part3}</p>
-          <p className='text-lg mt-2'>
+          <p className='font-title text-6xl md:text-8xl text-red uppercase'>{translation.part3}</p>
+          <p className='text-md md:text-lg mt-2'>
             {translation.subtitle}
           </p>
           <button
@@ -61,7 +61,7 @@ export default function Cover({ translation }:CoverProps) {
             <p>{translation.scroll}</p>
           </button>
         </div>
-        <div className='relative w-1/2 h-full'>
+        <div className='relative w-full md:w-1/2 h-2/5 md:h-full'>
           <Tape1 className='drop-shadow-floating w-2/5 absolute left-1/2 top-1/2 -translate-x-[120%] -translate-y-[150%] -rotate-12' />
           <Tape2
             title={translation.happy}

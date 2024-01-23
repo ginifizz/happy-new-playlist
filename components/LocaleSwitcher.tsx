@@ -19,7 +19,7 @@ export default function LocaleSwitcher({ current}:{current: Locale}) {
         {i18n.locales.map((locale) => {
           return (
             <li key={locale} className={current === locale ? "opacity-30 pointer-events-none" : ""}>
-              <Link href={redirectedPathName(locale)}>
+              <a href={redirectedPathName(locale)}>
                 {locale === 'en' ? (
                   <svg
                     xmlns='http://www.w3.org/2000/svg'
@@ -78,7 +78,7 @@ export default function LocaleSwitcher({ current}:{current: Locale}) {
                     </g>
                   </svg>
                 )}
-              </Link>
+              </a>
             </li>
           );
         })}

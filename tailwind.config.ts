@@ -11,6 +11,10 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      padding: '2rem',
+      center: true,
+    },
     fontFamily: {
       sans: ['var(--font-montserrat)'],
       title: ['var(--font-spicy)'],
@@ -21,10 +25,10 @@ const config: Config = {
         rotate: {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
-        }
+        },
       },
       animation: {
-        'rotate': 'rotate 1s linear infinite',
+        rotate: 'rotate 1s linear infinite',
       },
       colors: {
         beige: {
@@ -38,6 +42,9 @@ const config: Config = {
       },
       dropShadow: {
         floating: '0px 0px 20px rgb(0 0 0 / 0.5)',
+      },
+      height: {
+        screen: "100dvh",
       },
       backgroundImage: {
         damier:

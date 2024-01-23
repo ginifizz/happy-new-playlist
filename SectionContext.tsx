@@ -26,6 +26,7 @@ export const SectionContextProvider = ({ children }: PropsWithChildren<{}>) => {
   >('unready');
 
   const isScrolling = useRef(false);
+  const touchStartY = useRef(0);
 
   const movingContainer = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(ScrollToPlugin);
@@ -42,6 +43,7 @@ export const SectionContextProvider = ({ children }: PropsWithChildren<{}>) => {
     if (onScroll) onScroll();
   }, [currentSection]);
 
+  
   const scrollDown = useCallback((onScroll?: () => void) => {
     const position = movingContainer.current?.getBoundingClientRect();
     if(!position) return;
@@ -70,6 +72,34 @@ export const SectionContextProvider = ({ children }: PropsWithChildren<{}>) => {
     [scrollDown, scrollUp, Player]
   );
 
+  const handleTouchMove = useCallback((e:TouchEvent) => {
+    if (!touchStartY.current) return;
+
+    const deltaY = e.touches[0].clientY - touchStartY.current;
+
+    if (Math.abs(deltaY) > 20) {
+      const direction = deltaY > 0 ? 'down' : 'up';
+      if (direction === 'down'){
+        window.removeEventListener("touchmove", handleTouchMove);
+         scrollUp();
+      }
+      else {
+         window.removeEventListener('touchmove', handleTouchMove);
+        scrollDown();
+      }
+      // Faites quelque chose en fonction de la direction du swipe
+      touchStartY.current = 0; // Réinitialise la position de départ après le swipe
+    }
+  }, [scrollDown, scrollUp]);
+
+    const handleTouchStart = useCallback(
+      (e: TouchEvent) => {
+        window.addEventListener('touchmove', handleTouchMove);
+        touchStartY.current = e.touches[0].clientY;
+      },
+      [handleTouchMove]
+    );
+
   useEffect(() => {
     let pageHeight = window.innerHeight;
     const to = currentSection * pageHeight * -1;
@@ -88,11 +118,13 @@ export const SectionContextProvider = ({ children }: PropsWithChildren<{}>) => {
   }, [currentSection, handleWheel]);
 
   useEffect(() => {
-    window.addEventListener('wheel', handleWheel, { passive: false});
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    //window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('touchstart', handleTouchStart);
     return () => {
       window?.removeEventListener('wheel', handleWheel);
     };
-  }, [handleWheel]);
+  }, [handleWheel, handleTouchStart]);
 
   return (
     <SectionContext.Provider
