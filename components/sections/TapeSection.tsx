@@ -33,7 +33,6 @@ useEffect(() => {
       gsap.set(tapeElement.current, {
         transformOrigin: 'center center',
         x: '+200',
-        rotation: 45,
         scale: 0.2,
         opacity: 0,
       });
@@ -42,7 +41,6 @@ useEffect(() => {
         {
           transformOrigin: 'center center',
           x: '+200',
-          rotation: 90,
           scale: 0.2,
           opacity: 0,
           duration: 0.5,
@@ -50,7 +48,6 @@ useEffect(() => {
         {
           transformOrigin: 'center center',
           x: '+0',
-          rotation: 0,
           opacity: 1,
           scale: 1,
           duration: 0.5,

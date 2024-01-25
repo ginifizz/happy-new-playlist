@@ -149,7 +149,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
 
   return (
     <>
-      <div className='container fixed z-40 left-1/2 -translate-x-1/2 top-5 pointer-events-none'>
+      <div className='container fixed z-40 left-1/2 -translate-x-1/2 top-5'>
         <div
           className={clsx(
             'relative transition-all',
