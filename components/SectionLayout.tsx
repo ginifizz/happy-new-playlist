@@ -21,6 +21,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
 
   const isScrolling = useRef(false);
   const touchStartY = useRef(0);
+  const delay = useRef(0);
 
   const movingContainer = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(ScrollToPlugin);
@@ -60,7 +61,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
         window?.removeEventListener('wheel', handleWheel);
       };
       if (isScrolling.current) return;
-
+      delay.current = 800;
       if (event.deltaY >= 1) {
         scrollDown(resetWheel);
       } else if (event.deltaY <= -1) {
@@ -87,6 +88,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
         }
         // Faites quelque chose en fonction de la direction du swipe
         touchStartY.current = 0; // Réinitialise la position de départ après le swipe
+        delay.current = 200;
       }
     },
     [scrollDown, scrollUp]
@@ -95,6 +97,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (isScrolling.current) return;
+      delay.current = 50;
       if (e.key == 'ArrowUp') {
         scrollUp();
       }
@@ -127,7 +130,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
         setTimeout(() => {
           isScrolling.current = false;
           window.addEventListener('wheel', handleWheel, { passive: false });
-        }, 800);
+        }, delay.current);
       },
     });
   }, [currentSection, handleWheel]);

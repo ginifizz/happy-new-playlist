@@ -3,7 +3,7 @@
     "part1": "Les-Tilleuls.coop",
     "part2": "vous souhaite une année 2024<br />remplie de",
     "part3": "musique&nbsp;!",
-    "subtitle": "...et pour l’occasion, nos coopérateurs partagent avec vous leurs playlists favorites&nbsp;!",
+    "subtitle": "...et pour l’occasion, nos coopérateurs partagent avec vous leur playlist favorite&nbsp;!",
     "scroll": "Scroller pour écouter",
     "happy": "Bonne année !"
   },
@@ -30,7 +30,7 @@
     {
       "title": "Reggae for life",
       "subtitle": "La playlist de Soyuka",
-      "description": "Quand le release manager d'API Platform traite les issues ou les PR de votre framework préféré, il est toujours accompagné d'une playlist aux sons lents et balancés de la Jamaïque. Détendez-vous et mettez dès à présent des bonnes vibes dans vos oreilles."
+      "description": "Quand le release manager d'API Platform traite les issues ou les PR de votre framework préféré, il est toujours accompagné d'une playlist aux sons lents et balancés de la Jamaïque. Détendez-vous et mettez dès à présent de bonnes vibes dans vos oreilles."
     },
     {
       "title": "Walking on a dream",
@@ -38,8 +38,8 @@
       "description": "Ancienne libraire, Justine jongle maintenant avec les librairies JavaScript. Elle vous invite, à travers sa playlist, dans l'univers onirique qu'elle écoute au quotidien."
     },
     {
-      "title": "Na, alles gut&nbsp;?",
-      "subtitle": "La playlist de Jéjé",
+      "title": "Na, alles gut?",
+      "subtitle": "La playlist de Jérôme",
       "description": "Jérôme est développeur back-end et sa passion après l'astronomie, c'est la langue de Goethe. Découvrez avec sa playlist des classiques de la pop allemande&nbsp;!"
     },
     {
@@ -60,7 +60,7 @@
     {
       "title": "Mix and match",
       "subtitle": "La playlist d'Albin",
-      "description": "Si nous devions définir la playlist d'Albin avec un adjectif, ce serait l'eclectisme. Parcourez avec lui ces classiques de la pop, l'électro et du rock de ces dernières décennies."
+      "description": "Si nous devions définir la playlist d'Albin avec un adjectif, ce serait l'éclectisme. Parcourez avec lui ces classiques de la pop, l'électro et du rock de ces dernières décennies."
     },
     {
       "title": "Full Metal SRE",
