@@ -79,8 +79,9 @@ useEffect(() => {
           />
           <div className='flex flex-row flex-wrap gap-4 text-beige my-4'>
             <button
-              className='flex flex-row items-center gap-2 bg-red py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125'
+              className={clsx("flex flex-row items-center gap-2 bg-red py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125", !Player && "opacity-30 pointer-events-none")}
               onClick={() => {
+                if (!Player) return;
                 switch (playerStatus) {
                   case 'unready':
                     Player.play();
@@ -122,7 +123,7 @@ useEffect(() => {
                 </svg>
               )}
 
-              <span className='hidden md:block text-sm md:text-base uppercase font-black'>
+              <span className="hidden md:block text-sm md:text-base uppercase font-black">
                 {playerStatus === 'playing' ? 'Pause' : 'Preview'}
               </span>
             </button>
