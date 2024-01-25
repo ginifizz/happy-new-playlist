@@ -7,12 +7,35 @@ import LocaleSwitcher from '@/components/LocaleSwitcher';
 import { i18n, type Locale } from '../../i18n-config';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Metadata } from 'next';
+import { getDictionary } from '@/get-dictionary';
 
-export const metadata: Metadata = {
+/*export const metadata: Metadata = {
   title: 'Happy New Mix',
   description: 'Description à remplir',
   manifest: '/manifest.webmanifest',
+};*/
+
+type Props = {
+  params: { lang: Locale };
 };
+
+export async function generateMetadata({ params: { lang } }: Props) {
+  const dictionary = await getDictionary(lang);
+  return {
+    metadataBase: new URL('https://happy-new-mix.les-tilleuls.coop'),
+    title: dictionary.meta.title,
+    description: dictionary.meta.description,
+    manifest: '/manifest.webmanifest',
+    openGraph: {
+      title: dictionary.meta.opengraph.title,
+      description: dictionary.meta.opengraph.description,
+    },
+    twitter: {
+      title: dictionary.meta.opengraph.title,
+      description: dictionary.meta.opengraph.description,
+    },
+  };
+}
 
 const montserrat = Montserrat({
   subsets: ['latin'],
