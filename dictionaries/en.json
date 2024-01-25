@@ -1,31 +1,81 @@
 {
-    "cover": {
-        "part1": "Les-Tilleuls.coop",
-        "part2": "wishes you a year 2024<br />filled with",
-        "part3": "music!",
-        "subtitle": "...and for the occasion, our cooperative members are sharing their favorite playlists with you!",
-        "scroll": "Scroll to listen",
-        "happy": "Happy new Year!"
-    },
-"buttons": {
-    "scroll" : "Scroller pour la suite",
+  "cover": {
+    "part1": "Les-Tilleuls.coop",
+    "part2": "wishes you a year 2024<br />filled with",
+    "part3": "music!",
+    "subtitle": "...and, for the occasion, some of our collaborators are sharing their favorite music with you!",
+    "scroll": "Scroll to listen",
+    "happy": "Happy new Year!"
+  },
+  "buttons": {
+    "scroll": "Scroll for more music",
     "pause": "Pause",
     "preview": "Preview",
-    "spotify": "Ecouter sur Spotify" 
-},
-  "tape1": {
-    "title": "Spider Addict",
-    "subtitle": "La playlist de Laury",
-    "description": "Laury, c’est notre lead designer, et sa passion, c’est de décliner Webby, la mascotte araignée de notre framework API Platform. La preuve avec cette playlist déconseillée aux arachnophobes !"
+    "spotify": "Listen on Spotify"
   },
-  "tape2": {
-    "title": "Code Lover",
-    "subtitle": "La playlist de Kévin",
-    "description": "Kévin, notre chef de la programmation, ne vit que pour le code, et sa passion se reflète dans cette playlist qui ne manquera pas de faire vibrer les adeptes du langage binaire. Préparez-vous à plonger dans un univers sonore réservé aux passionnés du développement !"
+  "meta": {
+    "title": "XXX",
+    "description": "XXX",
+    "opengraph": {
+      "title": "XXX",
+      "description": "XXX"
+    }
   },
-  "tape3": {
-    "title": "100% Live",
-    "subtitle": "La playlist de Cécile",
-    "description": "Cécile, c'est notre chef d'événements, et son amour pour l'adrénaline du direct est palpable à chaque instant. La preuve en musique avec cette playlist à réserver aux amateurs de sensations fortes !"
-  }
+  "tapes": [
+    {
+      "title": "Code Lover",
+      "subtitle": "Kevin's playlist",
+      "description": "FrankenPHP, API Platform, Symfony... There is no downtime for Kévin and his passion for coding! Get ready to dive into a sonic universe reserved for enthusiasts of the binary language."
+    },
+    {
+      "title": "Reggae for life",
+      "subtitle": "Soyuka's playlist",
+      "description": "When the release manager of API Platform handles the issues or pull requests of your favorite framework, it is always accompanied by a playlist with slow and rhythmic sounds from Jamaica. Relax and now fill your ears with good vibes."
+    },
+    {
+      "title": "Walking on a dream",
+      "subtitle": "Justine's playlist",
+      "description": "Justine, a former bookstore employee, now juggles with JavaScript libraries. Through her playlist, she invites you into the dreamlike world that she listens to every day."
+    },
+    {
+      "title": "Na, alles gut&nbsp;?",
+      "subtitle": "Jéjé's playlist",
+      "description": "Jérôme is a back-end developer, and his passion, after astronomy, is speaking and learning German. Explore classic German pop music with his playlist!"
+    },
+    {
+      "title": "Spider addict",
+      "subtitle": "Laury's playlist",
+      "description": "Laury is our lead designer, and her passion is to draw different versions of Webby, the spider mascot of API Platform. Discover her playlist, not recommended for arachnophobes."
+    },
+    {
+      "title": "100% live",
+      "subtitle": "Cécile's playlist",
+      "description": "Cécile is our events manager, and we feel her passion for the adrenaline of live events every day. Beware: this playlist is reserved for thrill-seekers!"
+    },
+    {
+      "title": "Sang et or",
+      "subtitle": "Thomas's playlist",
+      "description": "When Thomas is not on the phone or in a client meeting, he listens to classics from his native region. Let's enjoy the best sounds of Lille and its area!"
+    },
+    {
+      "title": "Mix and match",
+      "subtitle": "Albin's playlist",
+      "description": "If we were to define Albin's playlist with one adjective, it would be eclecticism. Browse through these classics of pop, electro, and rock from the last few decades with him."
+    },
+    {
+      "title": "Full Metal SRE",
+      "subtitle": "Julien's playlist",
+      "description": "Julien is not just a K8s and GCP enthusiast; he's also a heavy metal fan! Today, he unveils an exclusive playlist where pop songs take on a whole new dimension through metal covers."
+    },
+    {
+      "title": "Down under",
+      "subtitle": "Allison's playlist",
+      "description": "Did you know that Allison spends part of the year in Australia? Let's revisit classics from the land Down Under with this pop and sunny playlist."
+    },
+    {
+      "title": "Many moods",
+      "subtitle": "Grégoire's playlist",
+      "description": "The playlist of Grégoire, our CTO, reflects all the emotions he can experience during a workday. Fasten your seatbelt and get ready for a roller coaster of bass and vocals!"
+    }
+  ]
 }

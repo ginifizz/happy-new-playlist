@@ -2,8 +2,8 @@
   "cover": {
     "part1": "Les-Tilleuls.coop",
     "part2": "vous souhaite une année 2024<br />remplie de",
-    "part3": "musique !",
-    "subtitle": "...et pour l’occasion, nos coopérateurs partagent avec vous leurs playlists favorites !",
+    "part3": "musique&nbsp;!",
+    "subtitle": "...et pour l’occasion, nos coopérateurs partagent avec vous leurs playlists favorites&nbsp;!",
     "scroll": "Scroller pour écouter",
     "happy": "Bonne année !"
   },
@@ -13,19 +13,69 @@
     "preview": "Preview",
     "spotify": "Ecouter sur Spotify"
   },
-  "tape1": {
-    "title": "Spider Addict",
-    "subtitle": "La playlist de Laury",
-    "description": "Laury, c’est notre lead designer, et sa passion, c’est de décliner Webby, la mascotte araignée de notre framework API Platform. La preuve avec cette playlist déconseillée aux arachnophobes !"
+  "meta": {
+    "title": "XXX",
+    "description": "XXX",
+    "opengraph": {
+      "title": "XXX",
+      "description": "XXX"
+    }
   },
-  "tape2": {
-    "title": "Code Lover",
-    "subtitle": "La playlist de Kévin",
-    "description": "Kévin, notre chef de la programmation, ne vit que pour le code, et sa passion se reflète dans cette playlist qui ne manquera pas de faire vibrer les adeptes du langage binaire. Préparez-vous à plonger dans un univers sonore réservé aux passionnés du développement !"
-  },
-  "tape3": {
-    "title": "100% Live",
-    "subtitle": "La playlist de Cécile",
-    "description": "Cécile, c'est notre chef d'événements, et son amour pour l'adrénaline du direct est palpable à chaque instant. La preuve en musique avec cette playlist à réserver aux amateurs de sensations fortes !"
-  }
+  "tapes": [
+    {
+      "title": "Code Lover",
+      "subtitle": "La playlist de Kévin",
+      "description": "FrankenPHP, API Platform, Symfony... Pas de temps mort pour Kévin et sa passion du code qui se reflète dans cette playlist qui fera vibrer les adeptes du langage binaire. Plongez dès maintenant dans un univers sonore réservé aux passionné·es du développement."
+    },
+    {
+      "title": "Reggae for life",
+      "subtitle": "La playlist de Soyuka",
+      "description": "Quand le release manager d'API Platform traite les issues ou les PR de votre framework préféré, il est toujours accompagné d'une playlist aux sons lents et balancés de la Jamaïque. Détendez-vous et mettez dès à présent des bonnes vibes dans vos oreilles."
+    },
+    {
+      "title": "Walking on a dream",
+      "subtitle": "La playlist de Justine",
+      "description": "Ancienne libraire, Justine jongle maintenant avec les librairies JavaScript. Elle vous invite, à travers sa playlist, dans l'univers onirique qu'elle écoute au quotidien."
+    },
+    {
+      "title": "Na, alles gut&nbsp;?",
+      "subtitle": "La playlist de Jéjé",
+      "description": "Jérôme est développeur back-end et sa passion après l'astronomie, c'est la langue de Goethe. Découvrez avec sa playlist des classiques de la pop allemande&nbsp;!"
+    },
+    {
+      "title": "Spider addict",
+      "subtitle": "La playlist de Laury",
+      "description": "Laury, c'est notre lead designer et sa passion, c'est de décliner Webby, la mascotte araignée d'API Platform. Découvrez sa playlist, déconseillée aux arachnophobes."
+    },
+    {
+      "title": "100% live",
+      "subtitle": "La playlist de Cécile",
+      "description": "Cécile, c'est notre cheffe des événements, et son amour pour l'adrénaline du direct est palpable à chaque instant. La preuve en musique avec cette playlist réservée aux amateurs de sensations fortes."
+    },
+    {
+      "title": "Sang et or",
+      "subtitle": "La playlist de Thomas",
+      "description": "Thomas fait partie de notre équipe commerciale et lorsqu'il n'est pas au téléphone ou en rendez-vous client, il met à ses oreilles des classiques de sa région natale. Écoutez ces chansons qui reflètent notre belle région des Hauts-de-France&nbsp;!"
+    },
+    {
+      "title": "Mix and match",
+      "subtitle": "La playlist d'Albin",
+      "description": "Si nous devions définir la playlist d'Albin avec un adjectif, ce serait l'eclectisme. Parcourez avec lui ces classiques de la pop, l'électro et du rock de ces dernières décennies."
+    },
+    {
+      "title": "Full Metal SRE",
+      "subtitle": "La playlist de Julien",
+      "description": "Julien, l'un de nos SRE, n'est pas qu'un aficionado de Kubernetes et GCP : c'est aussi un grand métalleux, habitué de nombreux festivals. Aujourd'hui, il vous dévoile une playlist exclusive, où variété et chansons pop prennent une toute nouvelle dimension grâce à des reprises en mode métal."
+    },
+    {
+      "title": "Down under",
+      "subtitle": "La playlist d'Allison",
+      "description": "Le saviez-vous&nbsp;? Notre coopératrice Allison passe une partie de l'année en Australie. Revenons, avec cette playlist pop et ensoleillée, sur des classiques du pays des Aussies."
+    },
+    {
+      "title": "Many moods",
+      "subtitle": "La playlist de Grégoire",
+      "description": "La playlist de Grégoire, notre directeur technique, reflète tous les sentiments qu'il peut ressentir au cours d'une journée de travail. Attachez votre ceinture et préparez-vous à des montagnes russes de basses et de vocaux&nbsp;!"
+    }
+  ]
 }

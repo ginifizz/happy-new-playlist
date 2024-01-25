@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 iframe {
-    @apply h-20 z-20 fixed top-[100vh] -translate-y-full left-0 w-full transition-all opacity-75;
+    @apply h-20 z-20 fixed top-[100dvh] -translate-y-full left-0 w-full transition-all opacity-75;
 }
 
 .hidden-iframe iframe {

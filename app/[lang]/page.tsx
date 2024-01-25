@@ -14,19 +14,19 @@ export default async function IndexPage({
   return (
     <>
       <Cover translation={dictionary.cover} />
-      {tapes.map((tape, i) => (
-        <TapeSection
-          // @ts-ignore
-          title={dictionary[`tape${i + 1}`].title}
-          // @ts-ignore
-          subtitle={dictionary[`tape${i + 1}`].subtitle}
-          // @ts-ignore
-          description={dictionary[`tape${i + 1}`].description}
-          section={i + 1}
-          key={tape.playlistId}
-          {...tape}
-        />
-      ))}
+      {tapes.map((tape, i) => {
+        const tapeDictionary = dictionary.tapes[i];
+        return (
+          <TapeSection
+            title={tapeDictionary.title}
+            subtitle={tapeDictionary.subtitle}
+            description={tapeDictionary.description}
+            dictionary={dictionary.buttons}
+            section={i + 1}
+            key={tape.playlistId}
+            {...tape}
+          />
+        );})}
     </>
   );
 }

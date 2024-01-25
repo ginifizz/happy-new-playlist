@@ -18,7 +18,12 @@ export default function LocaleSwitcher({ current}:{current: Locale}) {
       <ul className="flex flex-row gap-2">
         {i18n.locales.map((locale) => {
           return (
-            <li key={locale} className={current === locale ? "opacity-30 pointer-events-none" : ""}>
+            <li
+              key={locale}
+              className={
+                current === locale ? 'pointer-events-none' : 'opacity-30'
+              }
+            >
               <a href={redirectedPathName(locale)}>
                 {locale === 'en' ? (
                   <svg

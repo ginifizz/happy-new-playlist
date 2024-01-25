@@ -1,11 +1,10 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
 import { SectionContext } from '@/SectionContext';
 import Arrows from '@/components/Arrows';
-import Dots from '@/components/Dots';
 import clsx from 'clsx';
 import { useContext, useEffect, useRef } from 'react';
 import gsap from "gsap";
+import tapes from '@/data';
 
 type TapeSectionProps = {
     section: number;
@@ -16,10 +15,14 @@ type TapeSectionProps = {
     tape: React.ComponentType<Tape>;
     rotateClassName: string;
     playerStatus?: boolean;
+    dictionary: {
+      spotify: string;
+      scroll: string;
+    }
 }
 
-export default function TapeSection({ section, title, subtitle, description, playlistId, tape:Tape, rotateClassName}:TapeSectionProps) {
-const { scrollDown, Player, playerStatus, setPlayerStatus, currentSection } =
+export default function TapeSection({ section, title, subtitle, description, playlistId, tape:Tape, rotateClassName, dictionary}:TapeSectionProps) {
+const { setSection, Player, playerStatus, currentSection } =
   useContext(SectionContext);
 const tapeElement = useRef<HTMLDivElement>(null);
 const textElement = useRef<HTMLDivElement>(null);
@@ -27,38 +30,53 @@ const container = useRef<HTMLDivElement>(null);
 
 useEffect(() => {
     if (currentSection === section) {
-        gsap.to(tapeElement.current, { transformOrigin: 'center center', x:"+0", rotate: 0, scale:1, duration: 0.5, delay:0.2});
-        gsap.to(textElement.current, { scale: 1, duration:0.5, delay: 0.2})
-    } else {
-        gsap.to(tapeElement.current, {
+      gsap.set(tapeElement.current, {
+        transformOrigin: 'center center',
+        x: '+200',
+        rotation: 45,
+        scale: 0.2,
+        opacity: 0,
+      });
+      gsap.fromTo(
+        tapeElement.current,
+        {
           transformOrigin: 'center center',
           x: '+200',
-          rotate: '12deg',
+          rotation: 90,
           scale: 0.2,
+          opacity: 0,
+          duration: 0.5,
+        },
+        {
+          transformOrigin: 'center center',
+          x: '+0',
+          rotation: 0,
+          opacity: 1,
+          scale: 1,
           duration: 0.5,
           delay: 0.2,
-        });
-        gsap.to(textElement.current, { scale: 0, duration: 0.5, delay: 0.2 });
+        }
+      );
+      gsap.set(textElement.current, { scale: 0})
+      gsap.fromTo(textElement.current, {scale: 0}, { scale: 1, duration: 0.5, delay:0.2 });  
     }
 }, [currentSection, section]);
 
   return (
     <div ref={container} className='w-full h-screen relative'>
-      <div className='absolute right-0 top-28 text-red w-24'>
-        <Dots />
-      </div>
-      <div className='container relative h-full flex flex-col-reverse gap-12 md:flex-row md:gap-6 items-center mx-auto'>
-        <div ref={textElement} className='relative flex flex-col flex-1 gap-1'>
+      <div className='container relative h-full flex flex-col-reverse gap-12 md:flex-row items-center md:gap-6 mx-auto lg:pt-20 pb-20'>
+        <div ref={textElement} className='relative flex flex-col flex-1 gap-1 pb-4 md:pb-0'>
           <div className='text-red'>
             <Arrows />
           </div>
           <p className='text-xl md:text-2xl text-brown font-black'>
             {subtitle}
           </p>
-          <p className='font-title text-5xl md:text-7xl text-red uppercase'>
-            {title}
-          </p>
-          <p className='text-sm md:text-lg mt-2'>{description}</p>
+          <div className='font-title text-5xl md:text-7xl text-red uppercase' dangerouslySetInnerHTML={{ __html: title }}/>
+          <div
+            className='text-sm md:text-lg mt-2'
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
           <div className='flex flex-row flex-wrap gap-4 text-beige my-4'>
             <button
               className='flex flex-row items-center gap-2 bg-red py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125'
@@ -104,11 +122,16 @@ useEffect(() => {
                 </svg>
               )}
 
-              <span className='text-sm md:text-base block uppercase font-black'>
+              <span className='hidden md:block text-sm md:text-base uppercase font-black'>
                 {playerStatus === 'playing' ? 'Pause' : 'Preview'}
               </span>
             </button>
-            <button className='flex flex-row items-center gap-2 bg-green py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125'>
+            <a
+              href={`https://open.spotify.com/playlist/${playlistId}`}
+              target='_blank'
+              rel='noopener noreferrer'
+              className='flex flex-row items-center gap-2 bg-green py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125'
+            >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 x='0px'
@@ -122,13 +145,16 @@ useEffect(() => {
                 <path d='M25.009,1.982C12.322,1.982,2,12.304,2,24.991S12.322,48,25.009,48s23.009-10.321,23.009-23.009S37.696,1.982,25.009,1.982z M34.748,35.333c-0.289,0.434-0.765,0.668-1.25,0.668c-0.286,0-0.575-0.081-0.831-0.252C30.194,34.1,26,33,22.5,33.001 c-3.714,0.002-6.498,0.914-6.526,0.923c-0.784,0.266-1.635-0.162-1.897-0.948s0.163-1.636,0.949-1.897 c0.132-0.044,3.279-1.075,7.474-1.077C26,30,30.868,30.944,34.332,33.253C35.022,33.713,35.208,34.644,34.748,35.333z M37.74,29.193 c-0.325,0.522-0.886,0.809-1.459,0.809c-0.31,0-0.624-0.083-0.906-0.26c-4.484-2.794-9.092-3.385-13.062-3.35 c-4.482,0.04-8.066,0.895-8.127,0.913c-0.907,0.258-1.861-0.272-2.12-1.183c-0.259-0.913,0.272-1.862,1.184-2.12 c0.277-0.079,3.854-0.959,8.751-1c4.465-0.037,10.029,0.61,15.191,3.826C37.995,27.328,38.242,28.388,37.74,29.193z M40.725,22.013 C40.352,22.647,39.684,23,38.998,23c-0.344,0-0.692-0.089-1.011-0.275c-5.226-3.068-11.58-3.719-15.99-3.725 c-0.021,0-0.042,0-0.063,0c-5.333,0-9.44,0.938-9.481,0.948c-1.078,0.247-2.151-0.419-2.401-1.495 c-0.25-1.075,0.417-2.149,1.492-2.4C11.729,16.01,16.117,15,21.934,15c0.023,0,0.046,0,0.069,0 c4.905,0.007,12.011,0.753,18.01,4.275C40.965,19.835,41.284,21.061,40.725,22.013z'></path>
               </svg>
               <span className='text-sm md:text-base uppercase font-black'>
-                Ecouter sur Spotify
+                {dictionary.spotify}
               </span>
-            </button>
+            </a>
           </div>
           <button
-            className='flex flex-row gap-2 mt-12 font-extrabold text-brown uppercase'
-            onClick={() => scrollDown()}
+            className={clsx(
+              'flex flex-row gap-2 mt-6 font-extrabold text-sm md:text-base text-brown uppercase',
+              section === tapes.length && 'hidden'
+            )}
+            onClick={() => setSection(section + 1)}
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -144,7 +170,7 @@ useEffect(() => {
                 d='M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3'
               />
             </svg>
-            <p>Scroller pour la suite</p>
+            <p>{dictionary.scroll}</p>
           </button>
         </div>
         <div

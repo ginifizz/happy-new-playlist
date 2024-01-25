@@ -6,13 +6,16 @@ const config: Config = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './data.ts',
-
+    './SectionContext.tsx',
     // Or if using `src` directory:
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     container: {
-      padding: '2rem',
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+      },
       center: true,
     },
     fontFamily: {
@@ -43,8 +46,11 @@ const config: Config = {
       dropShadow: {
         floating: '0px 0px 20px rgb(0 0 0 / 0.5)',
       },
+      boxShadow: {
+        floating: '0px 0px 20px rgb(0 0 0 / 0.2)',
+      },
       height: {
-        screen: "100dvh",
+        screen: '100dvh',
       },
       backgroundImage: {
         damier:
