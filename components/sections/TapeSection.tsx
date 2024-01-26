@@ -87,7 +87,7 @@ export default function TapeSection({
     }
   }, [currentSection, section]);
 
-
+  if (section > currentSection + 2 || section < currentSection - 2) return (<div ref={container} className='w-full h-screen relative overflow-hidden'></div>)
   return (
     <div ref={container} className='w-full h-screen relative overflow-hidden'>
       <div className='container relative h-full flex flex-col-reverse gap-12 md:flex-row items-center md:gap-6 mx-auto lg:pt-20 pb-20'>
@@ -112,6 +112,7 @@ export default function TapeSection({
           />
           <div className='flex flex-row flex-wrap gap-4 text-beige my-4'>
             <button
+              aria-label="Toggle the player status"
               className={clsx(
                 'flex flex-row items-center gap-2 bg-red py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125',
                 !Player && 'opacity-30 pointer-events-none'

@@ -37,7 +37,7 @@ const tapes = [
     playlistId: '5aFL2EOTujXXSz7oZamByV',
   },
   {
-    who: 'Cécile',
+    who: 'cecile',
     tape: Tape6,
     rotateClassName: '-rotate-6',
     playlistId: '3AcSglaoprIuAd7UcCUAbm',

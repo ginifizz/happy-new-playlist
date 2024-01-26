@@ -206,6 +206,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
       </div>{' '}
       <button
         onClick={() => setSection(0)}
+        aria-label="Scroll to top"
         className={clsx(
           'fixed transition-all flex flex-col items-center gap-1 right-4 md:right-10 z-40 duration-500',
           currentSection === 0 ? 'bottom-0 translate-y-full' : 'bottom-24'
