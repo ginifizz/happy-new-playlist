@@ -11,14 +11,15 @@
     "scroll": "Scroll for more music",
     "pause": "Pause",
     "preview": "Preview",
-    "spotify": "Listen on Spotify"
+    "spotify": "Listen on Spotify",
+    "share": "Share"
   },
   "meta": {
     "title": "Happy New Mix 2024 by Les-Tilleuls.coop",
     "description": "Les-Tilleuls.coop wishes you a 2024 filled with music!",
     "opengraph": {
       "title": "Happy New Mix 2024 - Les-Tilleuls.coop",
-      "description": "Rock, rap, or even electro: kick off 2024 by listening to playlists curated by members of Les-Tilleuls.coop."
+      "description": "Rock, rap, or even electro: kick off 2024 by listening to playlists curated by our team!"
     }
   },
   "tapes": [

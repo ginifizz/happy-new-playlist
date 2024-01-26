@@ -11,14 +11,15 @@
     "scroll": "Scroller pour la suite",
     "pause": "Pause",
     "preview": "Preview",
-    "spotify": "Ecouter sur Spotify"
+    "spotify": "Ecouter sur Spotify",
+    "share": "Partager"
   },
   "meta": {
     "title": "Happy New Mix 2024 by Les-Tilleuls.coop",
     "description": "Les-Tilleuls.coop vous souhaite une année 2024 riche en musique !",
     "opengraph": {
       "title": "Happy New Mix 2024 - Les-Tilleuls.coop",
-      "description": "Démarrez 2024 avec des playlists concoctées par quelques coopérateurs de Les-Tilleuls.coop"
+      "description": "Démarrez 2024 avec des playlists concoctées par nos coopérateurs et coopératrices"
     }
   },
   "tapes": [

@@ -1,5 +1,6 @@
 'use client';
 import { SectionContext } from '@/SectionContext';
+import tapes from '@/data';
 import clsx from 'clsx';
 import { useContext, useMemo, useState, useEffect, useRef } from 'react';
 import {
@@ -14,20 +15,37 @@ import {
 type ShareButtonProps = {
   shareText: string;
   shareTitle: string;
+  shareButton: string;
   section: number;
 };
 
-export default function ShareButton({ shareText, shareTitle, section }: ShareButtonProps) {
+export default function ShareButton({
+  shareText,
+  shareTitle,
+  shareButton,
+  section,
+}: ShareButtonProps) {
   const { currentSection } = useContext(SectionContext);
   const [shareOpen, setShareOpen] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState('');
   const shareContainer = useRef<HTMLDivElement>(null);
 
-  const currentUrl = useMemo(
-    () =>
-      currentSection && window !== undefined ? `${window.location.href}` : '',
-    [currentSection]
-  );
+  // set correct URL to share buttons
+  useEffect(() => {
+    if (window === undefined) {
+      setCurrentUrl('');
+      return;
+    }
+    const baseUrl = window.location.href.split('#')[0];
+    if (currentSection === 0) {
+      setCurrentUrl(baseUrl);
+      return;
+    }
+    const playlistOwner = tapes[currentSection - 1]?.who;
+    setCurrentUrl(`${baseUrl}#${playlistOwner}`);
+  }, [setCurrentUrl, currentSection]);
 
+  // close share buttons if the section has changed
   useEffect(() => {
     if (currentSection !== section) setShareOpen(false);
   }, [currentSection, section]);
@@ -43,19 +61,19 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
         setShareOpen(false);
       }
     };
-        document.addEventListener('click', handleClickOutside, true);
+    document.addEventListener('click', handleClickOutside, true);
     return () => {
       document.removeEventListener('click', handleClickOutside, true);
     };
   }, [setShareOpen, shareOpen]);
 
   return (
-    <div className='relative z-40 inline-flex ml-2 bg-white text-brown rounded-full shadow-floating w-10 h-10 items-center justify-center'>
+    <div className='relative z-50 inline-flex ml-2 bg-white text-brown rounded-full shadow-floating w-10 h-10 items-center justify-center'>
       <button
         className='flex items-center justify-center w-full h-full rounded-full'
         onClick={() => setShareOpen(!shareOpen)}
-        aria-label="Share on social media"
-        name="Share"
+        aria-label='Share on social media'
+        name='Share'
       >
         {shareOpen ? (
           <svg
@@ -101,7 +119,7 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
             : 'pointer-events-none opacity-0 scale-0 -translate-y-1/2 md:-translate-y-0 md:-translate-x-1/2'
         )}
       >
-        <span className='uppercase font-bold text-xs mt-1'>Partager</span>
+        <span className='uppercase font-bold text-xs mt-1'>{shareButton}</span>
         <div className='flex flex-row gap-3 items-center'>
           <FacebookShareButton
             aria-label='Share on Facebook'
@@ -116,7 +134,7 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
             href={`https://mastodonshare.com/?text=${shareText}&url=${currentUrl}`}
             target='_blank'
             rel='noopener noreferrer'
-            aria-label="Share on Mastodon"
+            aria-label='Share on Mastodon'
             className='text-white bg-[#6364ff] flex rounded-full overflow-hidden p-2 w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
           >
             <svg

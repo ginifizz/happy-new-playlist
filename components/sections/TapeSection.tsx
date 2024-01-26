@@ -31,6 +31,7 @@ type TapeSectionProps = {
   dictionary: {
     spotify: string;
     scroll: string;
+    share: string;
   };
 };
 
@@ -100,7 +101,7 @@ export default function TapeSection({
           </div>
           <div className='text-xl md:text-2xl text-brown font-black'>
             <span>{subtitle}</span>
-            <ShareButton section={section} shareText={metaDictionary.description} shareTitle={metaDictionary.title} />
+            <ShareButton section={section} shareButton={dictionary.share} shareText={metaDictionary.description} shareTitle={metaDictionary.title} />
           </div>
           <div
             className='font-title text-5xl md:text-7xl text-red uppercase'

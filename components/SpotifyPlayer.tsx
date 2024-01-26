@@ -10,14 +10,20 @@ export default function SpotifyPlayer() {
     
     const playerStatusRef = useRef(playerStatus);
 
+    // update playerStatus reference (useful for the widget callbacks)
     useEffect(() => {
       playerStatusRef.current = playerStatus;
     }, [playerStatus]);
-
+    
     const onPlayerUpdate = useCallback((e: Event) => {
       if (playerStatusRef.current === 'unready') return;
       // @ts-ignore
-      if (!e.data.isPaused) {
+      if (e.data.position === e.data.duration) { // if the player is at the end of the playlist: force pause
+        setPlayerStatus('paused');
+        playerStatusRef.current = 'paused';
+      }
+      // @ts-ignore
+      else if (!e.data.isPaused) {
         setPlayerStatus('playing');
         playerStatusRef.current = 'playing';
       } else {
@@ -52,6 +58,7 @@ export default function SpotifyPlayer() {
 
     useEffect(() => {
       const tape = tapes[currentSection - 1];
+      // if not tape: reset the player
       if (!tape) {
         setPlayerStatus('unready');
         Player?.loadUri(null);
