@@ -24,7 +24,7 @@ export default function LocaleSwitcher({ current}:{current: Locale}) {
                 current === locale ? 'pointer-events-none' : 'opacity-30'
               }
             >
-              <a href={redirectedPathName(locale)}>
+              <a href={redirectedPathName(locale)} aria-label={`Switch to ${locale} language`}>
                 {locale === 'en' ? (
                   <svg
                     xmlns='http://www.w3.org/2000/svg'

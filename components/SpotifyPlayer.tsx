@@ -33,6 +33,7 @@ export default function SpotifyPlayer() {
         const element = document.getElementById('embed-iframe');
         const options = {
           theme: 'dark',
+          title: "Spotify Player"
         };
         if (!Player) {
           const callback = (EmbedController: any) => {
@@ -77,6 +78,7 @@ export default function SpotifyPlayer() {
         <div
           className='fixed bottom-0 w-full h-40 left-0 z-20'
           id='embed-iframe'
+          title="Spotify Player"
         ></div>
         </div>
       </>

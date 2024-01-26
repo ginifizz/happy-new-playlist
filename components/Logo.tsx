@@ -40,6 +40,7 @@ export default function Logo() {
           href='https://les-tilleuls.coop/en'
           target='_blank'
           rel='noreferrer noopener'
+          aria-label="Go to Les-Tilleuls.coop website"
         >
           <path fill='transparent' d='M2.3 25.8H100.6V42.5H2.3z'></path>
         </a>

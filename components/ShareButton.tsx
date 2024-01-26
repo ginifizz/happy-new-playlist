@@ -54,6 +54,8 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
       <button
         className='flex items-center justify-center w-full h-full rounded-full'
         onClick={() => setShareOpen(!shareOpen)}
+        aria-label="Share on social media"
+        name="Share"
       >
         {shareOpen ? (
           <svg
@@ -102,6 +104,8 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
         <span className='uppercase font-bold text-xs mt-1'>Partager</span>
         <div className='flex flex-row gap-3 items-center'>
           <FacebookShareButton
+            aria-label='Share on Facebook'
+            name='Facebook'
             url={currentUrl}
             title={shareTitle}
             className='text-brown flex rounded-full overflow-hidden w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
@@ -112,6 +116,7 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
             href={`https://mastodonshare.com/?text=${shareText}&url=${currentUrl}`}
             target='_blank'
             rel='noopener noreferrer'
+            aria-label="Share on Mastodon"
             className='text-white bg-[#6364ff] flex rounded-full overflow-hidden p-2 w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
           >
             <svg
@@ -127,6 +132,8 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
             </svg>
           </a>
           <TwitterShareButton
+            aria-label='Share on Twitter'
+            name='Twitter'
             url={currentUrl}
             title={shareText}
             className='text-white bg-brown flex rounded-full overflow-hidden w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:opacity-70'
@@ -134,6 +141,8 @@ export default function ShareButton({ shareText, shareTitle, section }: ShareBut
             <XIcon />
           </TwitterShareButton>
           <LinkedinShareButton
+            aria-label='Share on Linkedin'
+            name='Linkedin'
             className='bg-brown text-white flex rounded-full overflow-hidden w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
             url={currentUrl}
             title={shareTitle}
