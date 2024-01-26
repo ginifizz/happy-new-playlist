@@ -9,15 +9,19 @@ import {
   useEffect,
   useRef,
   useContext,
+  useState,
 } from 'react';
 import SpotifyPlayer from '@/components/SpotifyPlayer';
 import tapes from '@/data';
 import Logo from './Logo';
 import Dots from './Dots';
 import Circle from './Circle';
+import { useRouter } from 'next/navigation';
 
 export default function SectionLayout({ children }: PropsWithChildren<{}>) {
   const { setSection, currentSection, Player } = useContext(SectionContext);
+  const [firstHash, setFirstHash] = useState(true);
+  const router = useRouter();
 
   const isScrolling = useRef(false);
   const touchStartY = useRef(0);
@@ -25,6 +29,27 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
 
   const movingContainer = useRef<HTMLDivElement>(null);
   gsap.registerPlugin(ScrollToPlugin);
+
+  useEffect(() => {
+    if (!firstHash) return;
+    const hash = window.location.hash?.replace('#', '');
+    const playlist = tapes.find((tape) => tape.who === hash);
+    if (playlist) {
+      const index = tapes.indexOf(playlist) + 1;
+      setSection(index);
+    }
+    setFirstHash(false);
+  }, [firstHash, setSection]);
+
+  useEffect(() => {
+    if (firstHash) return;
+    if (currentSection === 0) {
+      router.push('');
+      return;
+    }
+    const playlistOwner = tapes[currentSection - 1].who;
+    router.push(`#${playlistOwner}`);
+  }, [router, currentSection, firstHash]);
 
   const scrollUp = useCallback(
     (onScroll?: () => void) => {
@@ -117,6 +142,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
   );
 
   useEffect(() => {
+    if (firstHash) return;
     let pageHeight = window.innerHeight;
     const to = currentSection * pageHeight * -1;
     if (gsap.getTweensOf(movingContainer.current).length) return;
@@ -133,7 +159,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
         }, delay.current);
       },
     });
-  }, [currentSection, handleWheel]);
+  }, [currentSection, handleWheel, firstHash]);
 
   useEffect(() => {
     window.addEventListener('wheel', handleWheel, { passive: false });

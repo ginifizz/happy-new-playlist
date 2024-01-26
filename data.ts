@@ -7,31 +7,31 @@ import Tape6 from '@/components/tapes/Tape6';
 
 const tapes = [
   {
-    who: 'Kévin',
+    who: 'kevin',
     tape: Tape1,
     rotateClassName: 'rotate-6',
     playlistId: '4h5ywuahH4tznoRNuIWKCP',
   },
   {
-    who: 'Soyuka',
+    who: 'soyuka',
     tape: Tape2,
     rotateClassName: '-rotate-6',
     playlistId: '0kVJYREcMJG3QYkV8czsdK',
   },
   {
-    who: 'Justine',
+    who: 'justine',
     tape: Tape6,
     rotateClassName: 'rotate-6',
     playlistId: '4gtpMtQXspQkm9rUw8Fk9h',
   },
   {
-    who: 'Jéjé',
+    who: 'jerome',
     tape: Tape4,
     rotateClassName: '-rotate-6',
     playlistId: '7tMMqPa7GUayvf4VYxvJr8',
   },
   {
-    who: 'Laury',
+    who: 'laury',
     tape: Tape5,
     rotateClassName: 'rotate-6',
     playlistId: '5aFL2EOTujXXSz7oZamByV',
@@ -43,31 +43,31 @@ const tapes = [
     playlistId: '3AcSglaoprIuAd7UcCUAbm',
   },
   {
-    who: 'Thomas',
+    who: 'thomas',
     tape: Tape1,
     rotateClassName: 'rotate-6',
     playlistId: '4fSTFJLCRNBrWBHjAbnZXM',
   },
   {
-    who: 'Albin',
+    who: 'albin',
     tape: Tape2,
     rotateClassName: '-rotate-6',
     playlistId: '4BfPBhIs7rb73n5Kltfto8',
   },
   {
-    who: 'Julien',
+    who: 'julien',
     tape: Tape4,
     rotateClassName: 'rotate-6',
     playlistId: '1pBlEuR32VkGaFotyZjJ9d',
   },
   {
-    who: 'Allison',
+    who: 'allison',
     tape: Tape3,
     rotateClassName: '-rotate-6',
     playlistId: '5V9CncYbqdOaZu4zUhs1We',
   },
   {
-    who: 'Grégoire',
+    who: 'gregoire',
     tape: Tape5,
     rotateClassName: 'rotate-6',
     playlistId: '6cB1bfbFcceMrJQVCEq3xJ',
