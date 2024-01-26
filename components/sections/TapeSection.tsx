@@ -1,34 +1,58 @@
-"use client";
+'use client';
 import { SectionContext } from '@/SectionContext';
 import Arrows from '@/components/Arrows';
 import clsx from 'clsx';
-import { useContext, useEffect, useRef } from 'react';
-import gsap from "gsap";
+import { useContext, useEffect, useMemo, useRef, useState } from 'react';
+import gsap from 'gsap';
 import tapes from '@/data';
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  LinkedinIcon,
+  XIcon
+} from "react-share";
+import ShareButton from '../ShareButton';
 
 type TapeSectionProps = {
-    section: number;
+  section: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  playlistId: string;
+  metaDictionary: {
     title: string;
-    subtitle: string;
     description: string;
-    playlistId: string;
-    tape: React.ComponentType<Tape>;
-    rotateClassName: string;
-    playerStatus?: boolean;
-    dictionary: {
-      spotify: string;
-      scroll: string;
-    }
-}
+  };
+  tape: React.ComponentType<Tape>;
+  rotateClassName: string;
+  playerStatus?: boolean;
+  dictionary: {
+    spotify: string;
+    scroll: string;
+  };
+};
 
-export default function TapeSection({ section, title, subtitle, description, playlistId, tape:Tape, rotateClassName, dictionary}:TapeSectionProps) {
-const { setSection, Player, playerStatus, currentSection } =
-  useContext(SectionContext);
-const tapeElement = useRef<HTMLDivElement>(null);
-const textElement = useRef<HTMLDivElement>(null);
-const container = useRef<HTMLDivElement>(null);
+export default function TapeSection({
+  section,
+  title,
+  subtitle,
+  description,
+  metaDictionary,
+  playlistId,
+  tape: Tape,
+  rotateClassName,
+  dictionary,
+}: TapeSectionProps) {
+  const { setSection, Player, playerStatus, currentSection } =
+    useContext(SectionContext);
+  const [shareOpen, setShareOpen] = useState(false);
+  const tapeElement = useRef<HTMLDivElement>(null);
+  const textElement = useRef<HTMLDivElement>(null);
+  const container = useRef<HTMLDivElement>(null);
 
-useEffect(() => {
+  useEffect(() => {
     if (currentSection === section) {
       gsap.set(tapeElement.current, {
         transformOrigin: 'center center',
@@ -54,29 +78,44 @@ useEffect(() => {
           delay: 0.2,
         }
       );
-      gsap.set(textElement.current, { scale: 0})
-      gsap.fromTo(textElement.current, {scale: 0}, { scale: 1, duration: 0.5, delay:0.2 });  
+      gsap.set(textElement.current, { scale: 0 });
+      gsap.fromTo(
+        textElement.current,
+        { scale: 0 },
+        { scale: 1, duration: 0.5, delay: 0.2 }
+      );
     }
-}, [currentSection, section]);
+  }, [currentSection, section]);
+
 
   return (
-    <div ref={container} className='w-full h-screen relative'>
+    <div ref={container} className='w-full h-screen relative overflow-hidden'>
       <div className='container relative h-full flex flex-col-reverse gap-12 md:flex-row items-center md:gap-6 mx-auto lg:pt-20 pb-20'>
-        <div ref={textElement} className='relative flex flex-col flex-1 gap-1 pb-4 md:pb-0'>
+        <div
+          ref={textElement}
+          className='relative flex flex-col flex-1 gap-1 pb-4 md:pb-0'
+        >
           <div className='text-red'>
             <Arrows />
           </div>
-          <p className='text-xl md:text-2xl text-brown font-black'>
-            {subtitle}
-          </p>
-          <div className='font-title text-5xl md:text-7xl text-red uppercase' dangerouslySetInnerHTML={{ __html: title }}/>
+          <div className='text-xl md:text-2xl text-brown font-black'>
+            <span>{subtitle}</span>
+            <ShareButton section={section} shareText={metaDictionary.description} shareTitle={metaDictionary.title} />
+          </div>
+          <div
+            className='font-title text-5xl md:text-7xl text-red uppercase'
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
           <div
             className='text-sm md:text-lg mt-2'
             dangerouslySetInnerHTML={{ __html: description }}
           />
           <div className='flex flex-row flex-wrap gap-4 text-beige my-4'>
             <button
-              className={clsx("flex flex-row items-center gap-2 bg-red py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125", !Player && "opacity-30 pointer-events-none")}
+              className={clsx(
+                'flex flex-row items-center gap-2 bg-red py-1 px-2 md:py-2 md:px-3 rounded-3xl transition-all hover:brightness-125',
+                !Player && 'opacity-30 pointer-events-none'
+              )}
               onClick={() => {
                 if (!Player) return;
                 switch (playerStatus) {
@@ -120,7 +159,7 @@ useEffect(() => {
                 </svg>
               )}
 
-              <span className="hidden md:block text-sm md:text-base uppercase font-black">
+              <span className='hidden md:block text-sm md:text-base uppercase font-black'>
                 {playerStatus === 'playing' ? 'Pause' : 'Preview'}
               </span>
             </button>

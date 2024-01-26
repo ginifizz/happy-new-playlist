@@ -5,6 +5,7 @@ import Dots from '@/components/Dots';
 import Tape1 from '@/components/tapes/Tape1';
 import Tape2 from '@/components/tapes/Tape2';
 import { useContext } from 'react';
+import ShareButton from '../ShareButton';
 
 type CoverProps = {
   translation: {
@@ -15,9 +16,13 @@ type CoverProps = {
     scroll: string;
     happy: string;
   };
+  metaDictionary: {
+    title: string;
+    description: string;
+  }
 };
 
-export default function Cover({ translation }:CoverProps) {
+export default function Cover({ translation, metaDictionary }:CoverProps) {
   const { setSection } = useContext(SectionContext);
 
   return (
@@ -28,8 +33,10 @@ export default function Cover({ translation }:CoverProps) {
       <div className='container relative h-full flex flex-col-reverse md:flex-row mx-auto lg:pt-20'>
         <div className='relative w-full md:w-1/2 flex flex-col gap-1 flex-1'>
           <div className='flex flex-col gap-1 flex-1 justify-center'>
-            <div className='text-red'>
-              <Arrows />
+            <div className='flex gap-2 items-center'>
+              <div className='text-red'>
+                <Arrows />
+              </div>
             </div>
             <p className='text-2xl md:text-5xl text-brown font-black'>
               {translation.part1}
@@ -38,7 +45,11 @@ export default function Cover({ translation }:CoverProps) {
               className='text-lg md:text-3xl text-brown font-bold'
               dangerouslySetInnerHTML={{ __html: translation.part2 }}
             />
-            <div className='font-title text-5xl md:text-8xl text-red uppercase' dangerouslySetInnerHTML={{ __html: translation.part3 }}/>
+            <div
+              className='font-title text-5xl md:text-8xl text-red uppercase'
+              dangerouslySetInnerHTML={{ __html: translation.part3 }}
+            />
+
             <div
               className='text-sm md:text-lg mt-2'
               dangerouslySetInnerHTML={{ __html: translation.subtitle }}

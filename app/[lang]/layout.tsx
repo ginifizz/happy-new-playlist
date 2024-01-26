@@ -8,6 +8,7 @@ import { i18n, type Locale } from '../../i18n-config';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { Metadata } from 'next';
 import { getDictionary } from '@/get-dictionary';
+import Script from 'next/script';
 
 /*export const metadata: Metadata = {
   title: 'Happy New Mix',

@@ -13,7 +13,7 @@ export default async function IndexPage({
 
   return (
     <>
-      <Cover translation={dictionary.cover} />
+      <Cover translation={dictionary.cover} metaDictionary={dictionary.meta.opengraph} />
       {tapes.map((tape, i) => {
         const tapeDictionary = dictionary.tapes[i];
         return (
@@ -22,6 +22,7 @@ export default async function IndexPage({
             subtitle={tapeDictionary.subtitle}
             description={tapeDictionary.description}
             dictionary={dictionary.buttons}
+            metaDictionary={dictionary.meta.opengraph}
             section={i + 1}
             key={tape.playlistId}
             {...tape}

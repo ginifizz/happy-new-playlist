@@ -207,11 +207,11 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
       <button
         onClick={() => setSection(0)}
         className={clsx(
-          'fixed transition-all flex flex-col items-center gap-1 right-4 md:right-10 z-50 duration-500',
+          'fixed transition-all flex flex-col items-center gap-1 right-4 md:right-10 z-40 duration-500',
           currentSection === 0 ? 'bottom-0 translate-y-full' : 'bottom-24'
         )}
       >
-        <div className='bg-red shadow-floating text-white  rounded-full w-12 h-12 relative'>
+        <div className='bg-red shadow-floating text-white rounded-full w-12 h-12 relative transition-all hover:brightness-125'>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 20 20'

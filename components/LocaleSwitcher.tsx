@@ -14,7 +14,7 @@ export default function LocaleSwitcher({ current}:{current: Locale}) {
   };
 
   return (
-    <div className="hidden md:block fixed right-10 top-10 z-20">
+    <div className="hidden md:block fixed right-10 top-10 z-50">
       <ul className="flex flex-row gap-2">
         {i18n.locales.map((locale) => {
           return (

@@ -39,7 +39,7 @@ export function middleware(request: NextRequest) {
       '/icon-512.png',
       '/apple-icon.png',
       '/twitter-image.png',
-      '/opengraph-image.png'
+      '/opengraph-image.png',
       // Your other files in `public`
     ].includes(pathname)
   )
