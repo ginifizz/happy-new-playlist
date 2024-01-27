@@ -47,8 +47,8 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
       router.push('');
       return;
     }
-    const playlistOwner = tapes[currentSection - 1].who;
-    router.push(`#${playlistOwner}`);
+    const playlistOwner = tapes[currentSection - 1]?.who;
+    router.push(playlistOwner ? `#${playlistOwner}` : '');
   }, [router, currentSection, firstHash]);
 
   const scrollUp = useCallback(

@@ -22,7 +22,7 @@ type CoverProps = {
   }
 };
 
-export default function Cover({ translation, metaDictionary }:CoverProps) {
+export default function Cover({ translation }:CoverProps) {
   const { setSection } = useContext(SectionContext);
 
   return (
@@ -30,19 +30,19 @@ export default function Cover({ translation, metaDictionary }:CoverProps) {
       <div className='absolute right-0 top-28 text-red w-24 hidden md:block'>
         <Dots />
       </div>
-      <div className='container relative h-full flex flex-col-reverse md:flex-row mx-auto lg:pt-20'>
-        <div className='relative w-full md:w-1/2 flex flex-col gap-1 flex-1'>
-          <div className='flex flex-col gap-1 flex-1 justify-center'>
+      <div className='container relative h-full flex flex-col-reverse landscape:flex-row mx-auto lg:pt-20'>
+        <div className='relative w-full landscape:w-1/2 flex flex-col gap-1 flex-1'>
+          <div className='flex flex-col gap-1 flex-1 justify-center pt-12'>
             <div className='flex gap-2 items-center'>
               <div className='text-red'>
                 <Arrows />
               </div>
             </div>
-            <p className='text-2xl md:text-5xl text-brown font-black'>
+            <p className='text-xl md:text-5xl text-brown font-black'>
               {translation.part1}
             </p>
             <div
-              className='text-lg md:text-3xl text-brown font-bold'
+              className='text-base md:text-3xl text-brown font-bold leading-snug'
               dangerouslySetInnerHTML={{ __html: translation.part2 }}
             />
             <div
@@ -55,7 +55,7 @@ export default function Cover({ translation, metaDictionary }:CoverProps) {
               dangerouslySetInnerHTML={{ __html: translation.subtitle }}
             />
             <button
-              className='flex flex-row gap-2 mt-12 font-extrabold text-brown uppercase'
+              className='flex flex-row gap-2 mt-4 md:mt-12 font-extrabold text-brown uppercase'
               onClick={() => setSection(1)}
             >
               <svg
@@ -72,11 +72,11 @@ export default function Cover({ translation, metaDictionary }:CoverProps) {
                   d='M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3'
                 />
               </svg>
-              <p>{translation.scroll}</p>
+              <p className="text-xs md:text-base">{translation.scroll}</p>
             </button>
           </div>
         </div>
-        <div className='relative w-full md:w-1/2 h-[30%] mt-20 md:mt-0 md:h-full'>
+        <div className='relative w-full landscape:md:w-1/2 landscape:w-2/5 h-[30%] mt-20 landscape:mt-0 landscape:h-full'>
           <Tape1 className='drop-shadow-floating w-2/5 absolute left-1/2 top-1/2 -translate-x-[120%] -translate-y-[150%] -rotate-12' />
           <Tape2
             title={translation.happy}

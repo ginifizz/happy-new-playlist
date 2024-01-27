@@ -6,15 +6,7 @@ import { SectionContextProvider } from '@/SectionContext';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 import { i18n, type Locale } from '../../i18n-config';
 import { GoogleTagManager } from '@next/third-parties/google';
-import { Metadata } from 'next';
 import { getDictionary } from '@/get-dictionary';
-import Script from 'next/script';
-
-/*export const metadata: Metadata = {
-  title: 'Happy New Mix',
-  description: 'Description à remplir',
-  manifest: '/manifest.webmanifest',
-};*/
 
 type Props = {
   params: { lang: Locale };
@@ -80,7 +72,7 @@ export default async function RootLayout({
           <div className='w-1/2 ml-auto h-full relative'>
             <img
               src='/lines.svg'
-              className='h-screen rotate-90 left-1/2 scale-x-[30%] top-[20%] max-w-none md:rotate-0 md:scale-x-100 md:top-1/2 -translate-y-1/2 absolute md:left-1/2 -translate-x-1/2'
+              className='h-screen rotate-90 left-1/2 scale-x-[30%] top-[20%] max-w-none landscape:rotate-0 landscape:scale-x-100 landscape:top-1/2 -translate-y-1/2 absolute landscape:left-1/2 -translate-x-1/2'
               alt=''
             />
           </div>
