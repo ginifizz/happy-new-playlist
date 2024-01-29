@@ -141,6 +141,24 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
     [handleTouchMove]
   );
 
+  const handleResize = useCallback(() => {
+    gsap.killTweensOf(movingContainer.current);
+    setSection(0);
+    gsap.set(movingContainer.current, {
+      duration: 0.1,
+      y: 0,
+      onStart: () => {
+        isScrolling.current = true;
+      },
+      onComplete: () => {
+        setTimeout(() => {
+          isScrolling.current = false;
+          window.addEventListener('wheel', handleWheel, { passive: false });
+        }, delay.current);
+      }
+    })
+  }, [setSection, handleWheel]);
+
   useEffect(() => {
     if (firstHash) return;
     let pageHeight = window.innerHeight;
@@ -165,13 +183,15 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
     window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('resize', handleResize);
     document.body.focus();
     return () => {
       window?.removeEventListener('wheel', handleWheel);
-      window?.addEventListener('keydown', handleKeyDown);
-      window?.addEventListener('touchstart', handleTouchStart);
+      window?.removeEventListener('keydown', handleKeyDown);
+      window?.removeEventListener('touchstart', handleTouchStart);
+      window?.removeEventListener('resize', handleResize);
     };
-  }, [handleWheel, handleTouchStart, handleKeyDown]);
+  }, [handleWheel, handleTouchStart, handleKeyDown, handleResize]);
 
   return (
     <>
