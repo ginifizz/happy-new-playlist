@@ -5,7 +5,7 @@ import clsx from "clsx";
 import { SectionContextProvider } from '@/SectionContext';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 import { i18n, type Locale } from '../../i18n-config';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { getDictionary } from '@/get-dictionary';
 
 type Props = {
@@ -84,7 +84,7 @@ export default async function RootLayout({
           </div>
         </SectionContextProvider>
       </body>
-      <GoogleTagManager gtmId='G-59B6KEK6LM' />
+      <GoogleAnalytics gaId='G-59B6KEK6LM' />
     </html>
   );
 }
