@@ -187,14 +187,14 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
           <div
             className={clsx(
               'w-auto relative z-10 transition-all duration-500',
-              currentSection === 0 ? 'h-12 md:h-20' : 'h-12'
+              currentSection === 0 ? 'h-12 lg:h-20' : 'h-12'
             )}
           >
             <Logo />
           </div>
         </div>
       </div>
-      <div className='absolute right-0 top-28 text-red w-24 hidden md:block'>
+      <div className='absolute right-0 top-28 text-red w-24 hidden lg:block'>
         <Dots />
       </div>
       <div className='absolute left-0 bottom-12 -translate-x-2/3 text-red w-44 opacity-25 hidden lg:block'>
@@ -208,7 +208,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
         onClick={() => setSection(0)}
         aria-label="Scroll to top"
         className={clsx(
-          'fixed transition-all flex flex-col items-center gap-1 right-4 md:right-10 z-40 duration-500',
+          'fixed transition-all flex flex-col items-center gap-1 right-4 lg:right-10 z-40 duration-500',
           currentSection === 0 ? 'bottom-0 translate-y-full' : 'bottom-24'
         )}
       >
@@ -226,7 +226,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
             />
           </svg>
         </div>
-        <span className='hidden md:block text-[10px] uppercase font-bold'>
+        <span className='hidden lg:block text-[10px] uppercase font-bold'>
           Scroll to top
         </span>
       </button>

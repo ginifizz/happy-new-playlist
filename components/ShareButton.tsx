@@ -113,10 +113,10 @@ export default function ShareButton({
       <div
         ref={shareContainer}
         className={clsx(
-          'absolute right-0 mt-4 top-full w-fit md:top-auto md:bottom-0 bg-white shadow-floating rounded-xl p-4 flex flex-col items-center md:right-auto md:left-full md:mt-0 md:ml-4  md:items-start gap-3 transition-all',
+          'absolute right-0 mt-4 top-full w-fit lg:top-auto lg:bottom-0 bg-white shadow-floating rounded-xl p-4 flex flex-col items-center lg:right-auto lg:left-full lg:mt-0 lg:ml-4  lg:items-start gap-3 transition-all',
           shareOpen
             ? 'opacity-100 scale-100 pointer-events-auto'
-            : 'pointer-events-none opacity-0 scale-0 -translate-y-1/2 md:-translate-y-0 md:-translate-x-1/2'
+            : 'pointer-events-none opacity-0 scale-0 -translate-y-1/2 lg:-translate-y-0 lg:-translate-x-1/2'
         )}
       >
         <span className='uppercase font-bold text-xs mt-1'>{shareButton}</span>
@@ -126,7 +126,7 @@ export default function ShareButton({
             name='Facebook'
             url={currentUrl}
             title={shareTitle}
-            className='text-brown flex rounded-full overflow-hidden w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
+            className='text-brown flex rounded-full overflow-hidden w-8 h-8 lg:w-9 lg:h-9 items-center justify-center transition-all hover:brightness-125'
           >
             <FacebookIcon />
           </FacebookShareButton>
@@ -135,7 +135,7 @@ export default function ShareButton({
             target='_blank'
             rel='noopener noreferrer'
             aria-label='Share on Mastodon'
-            className='text-white bg-[#6364ff] flex rounded-full overflow-hidden p-2 w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
+            className='text-white bg-[#6364ff] flex rounded-full overflow-hidden p-2 w-8 h-8 lg:w-9 lg:h-9 items-center justify-center transition-all hover:brightness-125'
           >
             <svg
               xmlns='http://www.w3.org/2000/svg'
@@ -154,14 +154,14 @@ export default function ShareButton({
             name='Twitter'
             url={currentUrl}
             title={shareText}
-            className='text-white bg-brown flex rounded-full overflow-hidden w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:opacity-70'
+            className='text-white bg-brown flex rounded-full overflow-hidden w-8 h-8 lg:w-9 lg:h-9 items-center justify-center transition-all hover:opacity-70'
           >
             <XIcon />
           </TwitterShareButton>
           <LinkedinShareButton
             aria-label='Share on Linkedin'
             name='Linkedin'
-            className='bg-brown text-white flex rounded-full overflow-hidden w-8 h-8 md:w-9 md:h-9 items-center justify-center transition-all hover:brightness-125'
+            className='bg-brown text-white flex rounded-full overflow-hidden w-8 h-8 lg:w-9 lg:h-9 items-center justify-center transition-all hover:brightness-125'
             url={currentUrl}
             title={shareTitle}
             summary={shareText}
