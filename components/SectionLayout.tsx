@@ -206,7 +206,7 @@ export default function SectionLayout({ children }: PropsWithChildren<{}>) {
           <div className='h-full bg-brown w-screen right-full absolute'></div>
           <div
             className={clsx(
-              'w-auto relative z-10 transition-all duration-500',
+              'w-auto relative z-10 transition-all duration-500 flex',
               currentSection === 0 ? 'h-12 lg:h-20' : 'h-12'
             )}
           >
