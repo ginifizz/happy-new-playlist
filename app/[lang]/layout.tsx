@@ -5,8 +5,8 @@ import clsx from "clsx";
 import { SectionContextProvider } from '@/SectionContext';
 import LocaleSwitcher from '@/components/LocaleSwitcher';
 import { i18n, type Locale } from '../../i18n-config';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import { getDictionary } from '@/get-dictionary';
+import Script from 'next/script';
 
 type Props = {
   params: { lang: Locale };
@@ -84,7 +84,11 @@ export default async function RootLayout({
           </div>
         </SectionContextProvider>
       </body>
-      <GoogleAnalytics gaId='G-59B6KEK6LM' />
+      <Script
+        defer
+        src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "57f8392c25e4473ca6a352172527d0ec"}'
+      ></Script>
     </html>
   );
 }
